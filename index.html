@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les petites ailes - Quatuor de musique</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d4af37;
+            --accent-hover: #b89528;
+            --bg-color: #f9f9fb;
+            --text-color: #333333;
+            --light-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* --- En-tête & Menu de Navigation --- */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(26, 37, 47, 0.96);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .brand-logo {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-logo span {
+            color: var(--accent-color);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--accent-color);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Menu Mobile Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(26,37,47,0.85), rgba(44,62,80,0.85)), 
+                        url("images/PZ3.jpg") center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* --- Conteneur Principal --- */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        /* --- Galerie Photos --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-item {
+            background: var(--light-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item p {
+            padding: 15px;
+            font-style: italic;
+            color: #666;
+            margin: 0;
+        }
+
+        /* --- Répertoire --- */
+        .repertoire-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .repertoire-card {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            background-color: #fafbfc;
+        }
+
+        .repertoire-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .repertoire-card ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        /* --- Concerts --- */
+        .concert-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .concert-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .concert-item:last-child {
+            border-bottom: none;
+        }
+
+        .concert-date {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            min-width: 140px;
+        }
+
+        .concert-info {
+            flex-grow: 1;
+        }
+
+        .concert-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .concert-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .btn-ticket {
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .btn-ticket:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        /* --- Page Infos Pratiques --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 6px;
+            background-color: #ffffff;
+        }
+
+        .info-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        /* --- Page Vidéos --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .video-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            background: #ffffff;
+        }
+
+        .video-placeholder {
+            position: relative;
+            background-color: #000;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+        }
+
+        .video-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .play-btn {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .video-card h3 {
+            padding: 15px;
+            margin: 0;
+            font-size: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* --- Page Organisateur --- */
+        .pro-box {
+            background-color: #f4f6f8;
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #1a252f;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Formulaire de Contact Pro */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-color);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries pour le Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--primary-color);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header avec Menu de Navigation -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">Les petites z'elles <span>♬</span></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#repertoire">Répertoire</a></li>
+                    <li><a href="#concerts">Concerts</a></li>
+                    <li><a href="#infos">Infos</a></li>
+                    <li><a href="#videos">Vidéos</a></li>
+                    <li><a href="#organisateur">Organisateur</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Header -->
+    <div class="hero" id="accueil">
+        <h1>Les petites z'elles</h1>
+        <p>Des femmes chantent les femmes</p>
+    </div>
+
+    <div class="container">
+
+        <!-- Section À propos / Présentation -->
+        <section class="section" id="about">
+            <h2>À propos du quatuor</h2>
+            <p>Des voix de femmes qui traversent les frontières et font vibrer le monde.
+              Le quatuor tisse un univers acoustique vibrant où la polyphonie et la corde se répondent avec finesse et sensibilité. 
+            <p> Deux chanteuses aux harmonies vocales puissantes et sensibles dialoguent avec le violoncelle, le violon, le banjo, le ukulélé ou la guitare pour un voyage à travers les continents, au fil de chants de femmes d’hier et d’aujourd’hui.
+Du chant de travail ancestral aux berceuses transmises de génération en génération, 
+«<strong> Les petites z’elles</strong> » explore le quotidien, les joies et les luttes des femmes à travers le monde et les époques. Mères, filles, ouvrières ou voyageuses : le groupe donne la voix à ces destins croisés venus de tous les continents. <br>
+Sans dogme ni posture radicale, le projet pose un regard tendre, poétique et profondément humain sur les problématiques universelles qui traversent la vie des femmes.
+<br>
+<strong><em>Des femmes chantent les femmes : un concert intimiste et généreux,  un pont entre les cultures, un hommage aux histoires partagées où chaque chanson devient une voix, une histoire, un voyage.</em></strong></p>
+<p>&nbsp;</p>
+        </section>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/PObZ8QaOsOs?si=cTej66tjkGJnjBVr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		
+        <!-- Section Galerie Photos (2 photos) -->
+        <div class="gallery">
+            <div class="gallery-item">
+				<img src="images/PZ1.jpg" width="3608" height="2140" alt=""/> 
+              
+            </div>
+            <div class="gallery-item">
+				
+                <img src="images/PZ2.jpg" width="3608" height="2140" alt=""/>
+               
+            </div>
+        </div>
+
+        <!-- Section Répertoire -->
+        <section class="section" id="repertoire">
+            <h2>Notre Répertoire</h2>
+            <div class="repertoire-grid">
+                <div class="repertoire-card">
+                    <h3>Classique & Baroque</h3>
+                    <ul>
+                        <li>W.A. Mozart – <em>Quatuors avec flûte</em></li>
+                        <li>J.S. Bach – <em>L'Art de la fugue (extraits)</em></li>
+                        <li>L. van Beethoven – <em>Quatuor op. 18 n°4</em></li>
+                    </ul>
+                </div>
+                <div class="repertoire-card">
+                    <h3>Romantique & Moderne</h3>
+                    <ul>
+                        <li>F. Schubert – <em>La Jeune Fille et la Mort</em></li>
+                        <li>C. Debussy – <em>Quatuor en sol mineur</em></li>
+                        <li>A. Dvořák – <em>Quatuor « Américain »</em></li>
+                    </ul>
+                </div>
+                <div class="repertoire-card">
+                    <h3>Cinéma & Musiques du Monde</h3>
+                    <ul>
+                        <li>E. Morricone – <em>Gabriel's Oboe</em></li>
+                        <li>A. Piazzolla – <em>Libertango</em></li>
+                        <li>Arrangements personnalisés & créations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Concerts -->
+        <section class="section" id="concerts">
+            <h2>Prochains Concerts</h2>
+            <ul class="concert-list">
+                <li class="concert-item">
+                    <div class="concert-date">12 NOV. 2026</div>
+                    <div class="concert-info">
+                        <h3>Nocturne Baroque & Romantique</h3>
+                        <p>Auditorium Saint-Germain – Paris (20h00)</p>
+                    </div>
+                    <a href="#" class="btn-ticket">Réserver</a>
+                </li>
+                <li class="concert-item">
+                    <div class="concert-date">05 DÉC. 2026</div>
+                    <div class="concert-info">
+                       
+                        <p>Église Notre-Dame – Lyon (18h30)</p>
+                    </div>
+                    <a href="#" class="btn-ticket">+ d'infos</a>
+                </li>
+                <li class="concert-item">
+                    <div class="concert-date">18 JAN. 2027</div>
+                    <div class="concert-info">
+                        <h3>Voyage en Amérique du Sud (Piazzolla & Astor)</h3>
+                        <p>Théâtre Molière – Bordeaux (20h30)</p>
+                    </div>
+                    <a href="#" class="btn-ticket">Réserver</a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Page/Section Infos Pratiques -->
+        <section class="section" id="infos">
+            <h2>Informations Pratiques</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>⏱ Déroulement des prestations</h3>
+                    <p>Nos concerts durent en moyenne 1h15 à 1h45 selon le programme choisi (avec ou sans entracte). Nous proposons également des formats courts sur mesure pour les réceptions.</p>
+                </div>
+                <div class="info-card">
+                    <h3>🎟 Tarification & Billetterie</h3>
+                    <p>Tarif plein : 20 € | Tarif réduit (étudiants, demandeurs d'emploi) : 12 € | Gratuit pour les moins de 12 ans. Billetterie disponible sur place et en ligne.</p>
+                </div>
+                <div class="info-card">
+                    <h3>♿ Accessibilité</h3>
+                    <p>Toutes les salles accueillant nos concerts sont accessibles aux personnes à mobilité réduite (PMR). N'hésitez pas à nous informer au préalable pour un accueil personnalisé.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page/Section Vidéos -->
+        <section class="section" id="videos">
+            <h2>Extrait & Captations Vidéo</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-placeholder">  
+						
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/PObZ8QaOsOs?si=cTej66tjkGJnjBVr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						
+                      
+                    </div>
+                    <h3>Live à l'Auditorium - Debussy (Extrait)</h3>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/be1QamE5t-s?si=jfs5EU2k-_B4yVeQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="play-btn">▶</div>
+                    </div>
+                    <h3>Session Studio : Libertango - A. Piazzolla</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page/Section Organisateur -->
+        <section class="section" id="organisateur">
+            <h2>Espace Organisateur & Programmation</h2>
+            <div class="pro-box">
+                <h3>Documents Professionnels</h3>
+                <p>Vous souhaitez programmer le quatuor <strong>Les petites ailes</strong> pour votre festival, saison culturelle ou événement privé ? Téléchargez nos documents techniques :</p>
+                <a href="plan complet.pdf" class="btn-download">📄 Fiche Technique (PDF)</a>
+                <a href="#" class="btn-download">📰 Dossier de Presse (PDF)</a>
+            </div>
+
+            <h3>Demande de Devis / Booking</h3>
+           <!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/xbggdnkz"
+  method="POST"
+>
+  <label>
+    votre email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    laissez-nous votre message / demande:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+        </section>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Les petites ailes. Tous droits réservés. | Contact : contact@lespetitesailes-quatuor.fr</p>
+    </footer>
+
+    <!-- Script JS pour le menu responsive et l'interactivité des liens -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // Fermer le menu mobile lors du clic sur un lien
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
