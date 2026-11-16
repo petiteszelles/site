@@ -475,6 +475,7 @@
 				    <li><a href="#infos">Infos</a></li>
                     <li><a href="#videos">Vidéos</a></li>
                     <li><a href="#organisateur">Organisateur</a></li>
+					<li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -641,28 +642,107 @@ L’objectif commun de ses projets est de militer, à travers la musique, pour l
                 <a href="#" class="btn-download">📰 Dossier de Presse (PDF)</a>
             </div>
 
-            <h3>Demande de Devis / Booking</h3>
-           <!-- modify this form HTML and place wherever you want your form -->
-<form
-  action="https://formspree.io/f/xbggdnkz"
-  method="POST"
->
-  <label>
-    votre email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    laissez-nous votre message / demande:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Envoyer</button>
-</form>
-        </section>
+          
+			 </section>
+			
+			
+			
+	<!-- Section Contact -->
+        <section class="section" id="contact">
+            <h2>contact</h2>	
+			  <h3>Demande de Devis /infos / Booking</h3>
+			
+		
+      
 
+
+<!-- modify this form HTML and place wherever you want your form -->
+<style>
+  .form-container {
+    max-width: 600px; /* Largeur confortable */
+    margin: 50px auto; /* Centre le bloc horizontalement avec de l'espace en haut/bas */
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: Arial, sans-serif;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-container label {
+    display: block;
+    font-size: 18px; /* Texte des libellés plus grand */
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333333;
+  }
+
+  .form-container input,
+  .form-container textarea {
+    width: 100%;
+    padding: 14px; /* Champs plus hauts et spacieux */
+    font-size: 18px; /* Texte saisi plus grand */
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Évite que les champs dépassent du cadre */
+  }
+
+  .form-container input:focus,
+  .form-container textarea:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+  }
+
+  .form-container button {
+    width: 100%;
+    padding: 16px;
+    font-size: 20px; /* Bouton imposant */
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0066cc;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .form-container button:hover {
+    background-color: #0052a3;
+  }
+</style>
+
+<div class="form-container">
+  <form action="https://formspree.io/f/xbggdnkz" method="POST">
+    <div class="form-group">
+      <label for="name">Votre nom :</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Votre email :</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Votre message :</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+
+    <!-- Champ invisible anti-spam -->
+    <input type="text" name="_gotcha" style="display:none">
+
+    <button type="submit">Envoyer</button>
+  </form>
 </div>
 
 
+          
+			 </section>
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Les petites z'elles. Tous droits réservés. | Contact : jlrx086@gmail.com</p>
