@@ -3,8 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="google-site-verification" content="eGjX6OG4IELUTb_HOF8nbFn7sdfJNzjiDkRm_oF7mzA" />
-    <title>Les petites z'elles</title>
+    <meta name="google-site-verification" content="eGjX6OG4IELUTb_HOF8nbFn7sdfJNzjiDkRm_oF7mzA" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Les petites z'elles - Quatuor vocal & instrumental</title>
+    <meta name="description" content="Découvrez Les petites z'elles, un quatuor vocal et instrumental (voix, violoncelle, violon, banjo, ukulélé) : des chants de femmes d'hier et d'aujourd'hui. Concerts, répertoire et booking.">
+    <meta name="keywords" content="quatuor vocal, musique du monde, chants de femmes, concert acoustique, Les petites z'elles, violoncelle, folk">
+    
+    <!-- Open Graph / Réseaux Sociaux -->
+    <meta property="og:title" content="Les petites z'elles - Quatuor vocal & instrumental">
+    <meta property="og:description" content="Des femmes chantent les femmes. Un concert intimiste et généreux, pont entre les cultures.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/PZ3.jpg">
+
+    <!-- Données structurées Schema.org pour Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "Les petites z'elles",
+      "genre": ["Musique du monde", "Chanson", "Traditionnel"],
+      "description": "Quatuor vocal et instrumental explorant les chants de femmes à travers le monde.",
+      "image": "images/PZ3.jpg",
+      "email": "jlrx086@gmail.com",
+      "member": [
+        {"@type": "Person", "name": "Laura Norel"},
+        {"@type": "Person", "name": "Sandrine Meunier"},
+        {"@type": "Person", "name": "Annabelle Désiré"},
+        {"@type": "Person", "name": "Jean-Luc Raffoux"}
+      ]
+    }
+    </script>
+
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -104,7 +134,6 @@
             width: 100%;
         }
 
-        /* Menu Mobile Toggle */
         .menu-toggle {
             display: none;
             background: none;
@@ -187,17 +216,10 @@
             display: block;
         }
 
-        .gallery-item p {
-            padding: 15px;
-            font-style: italic;
-            color: #666;
-            margin: 0;
-        }
-
-        /* --- Répertoire --- */
+        /* --- Répertoire & Artistes --- */
         .repertoire-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -207,17 +229,19 @@
             border-radius: 6px;
             padding: 20px;
             background-color: #fafbfc;
+            text-align: center;
+        }
+
+        .repertoire-card img {
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
         }
 
         .repertoire-card h3 {
             margin-top: 0;
             color: var(--primary-color);
             font-size: 1.1rem;
-        }
-
-        .repertoire-card ul {
-            padding-left: 20px;
-            margin-bottom: 0;
         }
 
         /* --- Concerts --- */
@@ -279,27 +303,7 @@
             color: var(--primary-color);
         }
 
-        /* --- Page Infos Pratiques --- */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .info-card {
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            border-radius: 6px;
-            background-color: #ffffff;
-        }
-
-        .info-card h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-
-        /* --- Page Vidéos --- */
+        /* --- Vidéos --- */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -314,36 +318,19 @@
             background: #ffffff;
         }
 
-        .video-placeholder {
+        .video-container {
             position: relative;
-            background-color: #000;
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
+            width: 100%;
+            aspect-ratio: 16/9;
         }
 
-        .video-placeholder img {
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-        }
-
-        .play-btn {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: rgba(212, 175, 55, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: #fff;
-            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            border: 0;
         }
 
         .video-card h3 {
@@ -351,9 +338,10 @@
             margin: 0;
             font-size: 1rem;
             color: var(--primary-color);
+            text-align: center;
         }
 
-        /* --- Page Organisateur --- */
+        /* --- Espace Organisateur --- */
         .pro-box {
             background-color: #f4f6f8;
             border-left: 4px solid var(--accent-color);
@@ -370,7 +358,6 @@
             padding: 10px 18px;
             border-radius: 4px;
             font-weight: bold;
-            margin-right: 10px;
             margin-top: 10px;
             transition: background 0.3s ease;
         }
@@ -379,40 +366,61 @@
             background-color: var(--accent-hover);
         }
 
-        /* Formulaire de Contact Pro */
+        /* --- Formulaire de Contact --- */
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto 0 auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
 
-        .form-group label {
+        .form-container label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333333;
         }
 
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
+        .form-container input,
+        .form-container textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            box-sizing: border-box;
             font-family: inherit;
         }
 
-        .btn-submit {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: background 0.3s ease;
+        .form-container input:focus,
+        .form-container textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
         }
 
-        .btn-submit:hover {
+        .form-container button {
+            width: 100%;
+            padding: 14px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .form-container button:hover {
             background-color: var(--accent-color);
             color: var(--primary-color);
         }
@@ -426,8 +434,8 @@
             font-size: 0.9rem;
         }
 
-        /* Media Queries pour le Responsive */
-        @media (max-width : 920px ){
+        /* Responsive Media Queries */
+        @media (max-width: 920px) {
             .menu-toggle {
                 display: block;
             }
@@ -460,22 +468,22 @@
 </head>
 <body>
 
-    <!-- Header avec Menu de Navigation -->
+    <!-- Header & Navigation -->
     <header class="site-header">
         <div class="nav-container">
-            <a href="#" class="brand-logo">Les petites z'elles <span>♬</span></a>
+            <a href="#accueil" class="brand-logo">Les petites z'elles <span>♬</span></a>
             <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">☰</button>
             <nav class="main-nav" id="mainNav">
                 <ul>
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#repertoire">Répertoire</a></li>
-					<li><a href="#artistes">Artistes</a></li>
+                    <li><a href="#artistes">Artistes</a></li>
                     <li><a href="#concerts">Concerts</a></li>
-				    <li><a href="#infos">Infos</a></li>
+                    <li><a href="#infos">Infos</a></li>
                     <li><a href="#videos">Vidéos</a></li>
                     <li><a href="#organisateur">Organisateur</a></li>
-					<li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -489,266 +497,175 @@
 
     <div class="container">
 
-        <!-- Section À propos / Présentation -->
+        <!-- Section À propos -->
         <section class="section" id="about">
             <h2>À propos du quatuor</h2>
-            <p>Des voix de femmes qui traversent les frontières et font vibrer le monde.
-              Le quatuor tisse un univers acoustique vibrant où la polyphonie et la corde se répondent avec finesse et sensibilité. 
-          <p> Deux chanteuses aux harmonies vocales puissantes et sensibles dialoguent avec le violoncelle, le violon, le banjo, le ukulélé ou la guitare pour un voyage à travers les continents, au fil de chants de femmes d’hier et d’aujourd’hui.&nbsp;</p>
-            <p>&nbsp; </p>
-            
-			
-<strong><em><h3>"Des femmes chantent les femmes"</h3>  Un concert intimiste et généreux,  un pont entre les cultures, un hommage aux histoires partagées où chaque chanson devient une voix, une histoire, un voyage.</em></strong></p>
-            <p>            
-          <p>&nbsp;</p>
+            <p>Des voix de femmes qui traversent les frontières et font vibrer le monde. Le quatuor tisse un univers acoustique vibrant où la polyphonie et la corde se répondent avec finesse et sensibilité.</p> 
+            <p>Deux chanteuses aux harmonies vocales puissantes et sensibles dialoguent avec le violoncelle, le violon, le banjo, le ukulélé ou la guitare pour un voyage à travers les continents, au fil de chants de femmes d’hier et d’aujourd’hui.</p>
+            <blockquote style="margin: 20px 0; border-left: 4px solid var(--accent-color); padding-left: 15px; color: var(--primary-color);">
+                <em>"Des femmes chantent les femmes" : un concert intimiste et généreux, un pont entre les cultures, un hommage aux histoires partagées où chaque chanson devient une voix, une histoire, un voyage.</em>
+            </blockquote>
         </section>
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/PObZ8QaOsOs?si=cTej66tjkGJnjBVr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-		
-        <!-- Section Galerie Photos (2 photos) -->
+
+        <!-- Vidéo principale -->
+        <section class="section">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/PObZ8QaOsOs?si=cTej66tjkGJnjBVr" title="Teaser Les petites z'elles" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </section>
+        
+        <!-- Galerie Photos -->
         <div class="gallery">
             <div class="gallery-item">
-				<img src="images/PZ1.jpg" width="800" height="504" alt=""/>
-              
+                <img src="images/PZ1.jpg" width="800" height="504" alt="Le quatuor Les petites z'elles en concert" loading="lazy">
             </div>
             <div class="gallery-item">
-				
-                <img src="images/PZ2.jpg" width="800" height="497" alt=""/>
-               
+                <img src="images/PZ2.jpg" width="800" height="497" alt="Les artistes sur scène" loading="lazy">
             </div>
         </div>
 
         <!-- Section Répertoire -->
         <section class="section" id="repertoire">
             <h2>Notre Répertoire</h2>
-			Du chant de travail ancestral aux berceuses transmises de génération en génération, 
-«<strong> Les petites z’elles</strong> » explore le quotidien, les joies et les luttes des femmes à travers le monde et les époques. Mères, filles, ouvrières ou voyageuses : le groupe donne la voix à ces destins croisés venus de tous les continents. <br>
-Sans dogme ni posture radicale, le projet pose un regard tendre, poétique et profondément humain sur les problématiques universelles qui traversent la vie des femmes.
- 
+            <p>Du chant de travail ancestral aux berceuses transmises de génération en génération, <strong>« Les petites z’elles »</strong> explore le quotidien, les joies et les luttes des femmes à travers le monde et les époques. Mères, filles, ouvrières ou voyageuses : le groupe donne la voix à ces destins croisés venus de tous les continents.</p>
+            <p>Sans dogme ni posture radicale, le projet pose un regard tendre, poétique et profondément humain sur les problématiques universelles qui traversent la vie des femmes.</p>
         </section>
 
-	 <!-- Section artistes -->
+        <!-- Section Artistes -->
         <section class="section" id="artistes">
             <h2>Les artistes</h2>
-			
-          <div class="repertoire-grid">
+            <div class="repertoire-grid">
                 <div class="repertoire-card">
+                    <img src="images/laura.jpg" alt="Laura Norel" width="120" height="160" loading="lazy">
                     <h3>Laura Norel</h3>
-					<p> <img src="images/laura.jpg" alt="" width="120" height="160"> </p>
-					<p>Laura explore la musique depuis l'enfance au travers de la pratique du chant, de la clarinette , des percussions mandingues. Elle approfondit la polyphonie et l'improvisation vocale depuis une dizaine
-					  d'années et se forme à la musicothérapie, s'attachant à faire circuler l'expression de chacun sous des formes non verbales." </p>
+                    <p>Chant, clarinette, percussions mandingues. Se forme à la musicothérapie et explore la polyphonie et l'improvisation vocale.</p>
                 </div>
                 <div class="repertoire-card">
+                    <img src="images/sandrine.jpg" alt="Sandrine Meunier" width="120" height="160" loading="lazy">
                     <h3>Sandrine Meunier</h3>
-				  <p> <img src="images/sandrine.jpg" width="120" height="160" alt="">&nbsp;</p>
-					<p>&nbsp;Sandrine pratique le chant choral, les polyphonies, vibre aux chants de femmes de tous horizons, chants traditionnels qui se transmettent depuis des temps immémoriaux </p>
+                    <p>Chant choral et polyphonies. Vibre aux chants de femmes de tous horizons, transmis depuis des temps immémoriaux.</p>
                 </div>
                 <div class="repertoire-card">
+                    <img src="images/anna.jpg" alt="Annabelle Désiré" width="120" height="160" loading="lazy">
                     <h3>Annabelle Désiré</h3>
-                 
-                  <p> <img src="images/anna.jpg" width="120" height="160" alt="">&nbsp;</p>
-                    <p>Violoncelliste de formation classique, Annabelle joue et chante dans différentes formations : répertoire écrit, improvisations, arrangements et polyphonie. 
-L’objectif commun de ses projets est de militer, à travers la musique, pour la diffusion des cultures, l’ouverture, le partage et la diversité.. </p>
+                    <p>Violoncelliste classique. Milite à travers la musique pour la diffusion des cultures, l’ouverture et la diversité.</p>
                 </div>
-			  <div class="repertoire-card">
+                <div class="repertoire-card">
+                    <img src="images/jl.jpg" alt="Jean-Luc Raffoux" width="120" height="160" loading="lazy">
                     <h3>Jean-Luc Raffoux</h3>
-			    <p> <img src="images/jl.jpg" width="120" height="160" alt="">&nbsp;</p>
-				    <p>Eclectique, genre de couteau suisse qui, avec diverses formations, écume les scènes avec ses violons, ukuleles, guitares, banjos, harmonicas, claviers... de la musique trad à la chanson française en passant par le rock, l'americana, le celtique... </p>
-              </div>
-          </div>
+                    <p>Violon, ukulélé, guitare, banjo, harmonica, claviers. Écume les scènes de la musique trad au rock et à l'americana.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Section Concerts -->
         <section class="section" id="concerts">
             <h2>Prochains Concerts</h2>
             <ul class="concert-list">
-                 <li class="concert-item">
+                <li class="concert-item">
                     <div class="concert-date">10 Mars 2027</div>
-                   <div class="concert-info">
-                     <h3>Maison de la forêt des charmes</h3>
-                       <p>St Julien l'Ars 86 - 15:00</p>
+                    <div class="concert-info">
+                        <h3>Maison de la forêt des charmes</h3>
+                        <p>St Julien l'Ars (86) - 15:00</p>
                     </div>
                     <a href="#" class="btn-ticket">+ d'infos</a>
                 </li>
-				<li class="concert-item">
+                <li class="concert-item">
                     <div class="concert-date">24 Avril 2027</div>
                     <div class="concert-info">
                         <h3>La forge d'Adrien</h3>
-                        <p>Sillars 86 (20h30)</p>
+                        <p>Sillars (86) - 20:30</p>
                     </div>
-                    <a href="https://www.facebook.com/laforge.dadrien.3" class="btn-ticket">+ d'infos</a>
-                </li>
-               
-                <li class="concert-item">
-                    <div class="concert-date">..</div>
-                    <div class="concert-info">
-                        <h3>...</h3>
-                        <p>....</p>
-                    </div>
-                    <a href="#" class="btn-ticket">Réserver</a>
+                    <a href="https://www.facebook.com/laforge.dadrien.3" target="_blank" rel="noopener" class="btn-ticket">+ d'infos</a>
                 </li>
             </ul>
         </section>
 
-        <!-- Page/Section Infos Pratiques -->
+        <!-- Infos Pratiques -->
         <section class="section" id="infos">
             <h2>Informations Pratiques</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>⏱ Déroulement des prestations</h3>
-                    <p>Nos concerts durent en moyenne 1h à 1h15 selon le programme choisi (avec ou sans entracte). Nous proposons également des formats courts sur mesure pour les réceptions.</p>
-                </div>
-               
+            <div class="info-card" style="border: 1px solid var(--border-color); padding: 20px; border-radius: 6px; background-color: #ffffff;">
+                <h3>⏱ Déroulement des prestations</h3>
+                <p>Nos concerts durent en moyenne 1h à 1h15 selon le programme choisi (avec ou sans entracte). Nous proposons également des formats courts sur mesure pour les réceptions.</p>
             </div>
         </section>
 
-        <!-- Page/Section Vidéos -->
+        <!-- Vidéos -->
         <section class="section" id="videos">
             <h2>Extrait & Captations Vidéo</h2>
             <div class="video-grid">
                 <div class="video-card">
-                    <div class="video-placeholder">  
-						
-                       <iframe width="560" height="315" src="https://www.youtube.com/embed/-XjlUhxNny4?si=1YF_GTdUBXdRmE7B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-						
-                      
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/-XjlUhxNny4?si=1YF_GTdUBXdRmE7B" title="Live au théâtre de la Reine Blanche 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
                     </div>
                     <h3>Live au théâtre de la Reine Blanche 2026</h3>
                 </div>
                 <div class="video-card">
-                    <div class="video-placeholder">
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/jcSwDg76bmg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                      
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/jcSwDg76bmg" title="Concert à Marçay 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
                     </div>
-                    <h3>concert à Marçay 2026</h3>
+                    <h3>Concert à Marçay 2026</h3>
                 </div>
             </div>
-			
-		  <p>&nbsp;</p>
-			<p> <a href="https://youtube.com/playlist?list=PLdG9JUhtnmoQ9bk7Ee5AoqynhWJGTp4M_&si=ITI5YSqnndi0riOz" target="new">playlist complète Petites z'elles</a> </p>
+            <p style="text-align: center; margin-top: 25px;">
+                <a href="https://youtube.com/playlist?list=PLdG9JUhtnmoQ9bk7Ee5AoqynhWJGTp4M_&si=ITI5YSqnndi0riOz" target="_blank" rel="noopener">📺 Voir la playlist complète sur YouTube</a>
+            </p>
         </section>
 
-        <!-- Page/Section Organisateur -->
+        <!-- Espace Organisateur -->
         <section class="section" id="organisateur">
             <h2>Espace Organisateur & Programmation</h2>
             <div class="pro-box">
-		      <strong> • Distribution</strong> : 4 artistes sur scène (2 chanteuses, 1 violoncelliste, 1 multi-instrumentiste : violon, banjo, ukulélé, guitare) <br>
-              <strong> • Format</strong> : Concert (45 min à 1 h 15) <br>
-              <strong> • Public</strong> : Tout public <br>
-              <strong> • Implantation</strong> : Adapté aux saisons culturelles, festivals de musiques du monde/trad, scènes acoustiques, chapelles et lieux patrimoniaux. <br>
-              <strong> • Technique</strong> : autonome en sonorisation / éclairage
-              <h3>Documents Professionnels</h3>
-<p>Vous souhaitez programmer le quatuor <strong>Les petites z'elles</strong> pour votre festival, saison culturelle ou événement privé ? Téléchargez nos documents techniques :</p>
-                <a href="fiche technique Petites z elles.pdf" class="btn-download">📄 Fiche Technique (PDF)</a>
+                <p><strong>• Distribution :</strong> 4 artistes sur scène (2 chanteuses, 1 violoncelliste, 1 multi-instrumentiste : violon, banjo, ukulélé, guitare)</p> 
+                <p><strong>• Format :</strong> Concert (45 min à 1 h 15)</p> 
+                <p><strong>• Public :</strong> Tout public</p> 
+                <p><strong>• Implantation :</strong> Adapté aux saisons culturelles, festivals de musiques du monde/trad, scènes acoustiques, chapelles et lieux patrimoniaux.</p> 
+                <p><strong>• Technique :</strong> Autonome en sonorisation / éclairage</p>
                 
+                <h3>Documents Professionnels</h3>
+                <p>Vous souhaitez programmer le quatuor <strong>Les petites z'elles</strong> pour votre festival, saison culturelle ou événement privé ? Téléchargez notre fiche technique :</p>
+                <a href="fiche technique Petites z elles.pdf" class="btn-download" download>📄 Fiche Technique (PDF)</a>
             </div>
+        </section>
 
-          
-			 </section>
-			
-			
-			
-	<!-- Section Contact -->
-        <section class="section" id="Contact">
-            <h2>contact</h2>	
-			  <h3>Demande de Devis / Infos / Booking</h3>
-			
-		
-      
+        <!-- Section Contact (ID corrigé en minuscules pour correspondre au menu) -->
+        <section class="section" id="contact">
+            <h2>Contact</h2>
+            <h3>Demande de Devis / Infos / Booking</h3>
+            
+            <div class="form-container">
+                <form action="https://formspree.io/f/xbggdnkz" method="POST">
+                    <div class="form-group">
+                        <label for="name">Votre nom :</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="email">Votre email :</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-<!-- modify this form HTML and place wherever you want your form -->
-<style>
-  .form-container {
-    max-width: 600px; /* Largeur confortable */
-    margin: 50px auto; /* Centre le bloc horizontalement avec de l'espace en haut/bas */
-    padding: 30px;
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    font-family: Arial, sans-serif;
-  }
+                    <div class="form-group">
+                        <label for="message">Votre message :</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
 
-  .form-group {
-    margin-bottom: 20px;
-  }
+                    <!-- Champ invisible anti-spam -->
+                    <input type="text" name="_gotcha" style="display:none">
 
-  .form-container label {
-    display: block;
-    font-size: 18px; /* Texte des libellés plus grand */
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333333;
-  }
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+        </section>
 
-  .form-container input,
-  .form-container textarea {
-    width: 100%;
-    padding: 14px; /* Champs plus hauts et spacieux */
-    font-size: 18px; /* Texte saisi plus grand */
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    box-sizing: border-box; /* Évite que les champs dépassent du cadre */
-  }
-
-  .form-container input:focus,
-  .form-container textarea:focus {
-    outline: none;
-    border-color: #0066cc;
-    box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
-  }
-
-  .form-container button {
-    width: 100%;
-    padding: 16px;
-    font-size: 20px; /* Bouton imposant */
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #0066cc;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-
-  .form-container button:hover {
-    background-color: #0052a3;
-  }
-</style>
-
-<div class="form-container">
-  <form action="https://formspree.io/f/xbggdnkz" method="POST">
-    <div class="form-group">
-      <label for="name">Votre nom :</label>
-      <input type="text" id="name" name="name" required>
     </div>
 
-    <div class="form-group">
-      <label for="email">Votre email :</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-      <label for="message">Votre message :</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
-
-    <!-- Champ invisible anti-spam -->
-    <input type="text" name="_gotcha" style="display:none">
-
-    <button type="submit">Envoyer</button>
-  </form>
-</div>
-
-
-          
-			 </section>
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Les petites z'elles. Tous droits réservés. | Contact : jlrx086@gmail.com</p>
+        <p>&copy; 2026 Les petites z'elles. Tous droits réservés. | Contact : petiteszelles@gmail.com</p> crédit photos : JM Quintard
     </footer>
 
-    <!-- Script JS pour le menu responsive et l'interactivité des liens -->
+    <!-- Script JS -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const mainNav = document.getElementById('mainNav');
